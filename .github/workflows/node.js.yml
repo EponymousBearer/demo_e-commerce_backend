@@ -25,9 +25,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    -run: |
-       touch env
-       echo "${{ secrets.prod}}" > .env
+
     - run: npm ci
     - run: pm2 restart 0
  

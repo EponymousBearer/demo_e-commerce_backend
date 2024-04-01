@@ -7,7 +7,7 @@ import productRouter from './Routes/product.js'
 import userRouter from './Routes/user.js'
 import session from "express-session";
 
-const PORT = process.env.PORT || 5004;
+const PORT = process.env.PORT || 5005;
 dotenv.config();
 const app = express(); 
 app.use(express.json({ limit: "30mb", extended: true }));

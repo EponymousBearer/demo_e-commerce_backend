@@ -36,6 +36,6 @@ app.use("/auth", userRouter);
 app.use("/product", productRouter);
 
 ////////////////////////////////////////////////////////////////////////////
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true, })
+mongoose.connect(process.env.DB_CONNECTION)
 .then(() => { console.log('Connected Succesfully.') }).catch((err) => console.log('no connection ', err))
 const server = app.listen(PORT, () => console.log("Listening on port ", PORT));

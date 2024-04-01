@@ -36,6 +36,6 @@ app.use("/auth", userRouter);
 app.use("/product", productRouter);
 
 ////////////////////////////////////////////////////////////////////////////
-mongoose.connect(process.env.DB_CONNECTION)
+mongoose.connect("mongodb+srv://adnan:adnannasir@cluster0.o7jt12n.mongodb.net/ecommerce?retryWrites=true&w=majority")
 .then(() => { console.log('Connected Succesfully.') }).catch((err) => console.log('no connection ', err))
 const server = app.listen(PORT, () => console.log("Listening on port ", PORT));

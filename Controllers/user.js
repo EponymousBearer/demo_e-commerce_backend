@@ -56,23 +56,6 @@ export const ForgotPassword = async (req, res) => {
   }
 };
 
-export const MyAccount = async (req, res) => {
-  try {
-    const { email } = req.params; 
-    const lowercaseEmail = email.toLowerCase(); 
-    const userDetails = await UserModal.findOne({ email: lowercaseEmail }); 
-    if (!userDetails) {
-      return res.status(404).json({ success: false, message: "User details not found" });
-    }
-
-    res.status(200).json({ success: true, user: userDetails });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false, message: "Something went wrong" });
-  }
-};
-
-
 export const getalluser = async (req, res) => {
  
   try {
@@ -84,4 +67,21 @@ export const getalluser = async (req, res) => {
     console.error(error);
     res.status(500).json({ success: false, message: "Something went wrong" });
   }
+};
+
+export const MyAccount = async (req, res) => {
+
+  try {
+    const { email } = req.params; 
+    const lowercaseEmail = email.toLowerCase(); 
+    const userDetails = await UserModal.findOne({ email: lowercaseEmail }); 
+    if (!userDetails) {
+      return res.status(404).json({ success: false, message: "User details not found" });
+    }
+    res.status(200).json({ success: true, user: userDetails });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Something went wrong" });
+  }
+  
 };
